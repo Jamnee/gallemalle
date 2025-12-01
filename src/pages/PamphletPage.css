@@ -1,0 +1,106 @@
+.pamphlet-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    position: relative;
+    background-color: #e0e0e0;
+    /* Map placeholder color */
+    overflow: hidden;
+}
+
+.map-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://upload.wikimedia.org/wikipedia/commons/e/ec/Map_of_Seoul_districts_de.png');
+    /* Placeholder map */
+    background-size: cover;
+    background-position: center;
+    z-index: 0;
+    opacity: 0.6;
+}
+
+.pamphlet-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 24px;
+    z-index: 10;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.9), transparent);
+}
+
+.pamphlet-title {
+    font-family: var(--font-main);
+    font-size: 1.5rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--primary-teal) 0%, var(--accent-orange) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-color: rgba(255, 255, 255, 0.95);
+    /* Fallback/Container bg */
+    padding: 10px 24px;
+    border-radius: 30px;
+    box-shadow: 0 8px 20px rgba(5, 97, 105, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 139, 41, 0.2);
+}
+
+.home-icon {
+    color: var(--primary-teal);
+    cursor: pointer;
+}
+
+.trip-info-sheet {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(224, 247, 250, 0.95);
+    /* Light teal transparent */
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    padding: 30px 24px;
+    padding-bottom: 50px;
+    z-index: 20;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.info-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+    font-size: 1.1rem;
+    color: #212121;
+}
+
+.info-icon {
+    width: 24px;
+    margin-right: 12px;
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+.info-text {
+    font-weight: 500;
+}
+
+.character-illustration {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    width: 100px;
+    height: 150px;
+    /* Placeholder for character */
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23FF9800"><circle cx="12" cy="8" r="4"/><path d="M12 14c-6.1 0-8 4-8 4v2h16v-2s-1.9-4-8-4z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    opacity: 0.8;
+}
