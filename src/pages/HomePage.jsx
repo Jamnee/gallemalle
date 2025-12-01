@@ -26,71 +26,58 @@ const HomePage = () => {
     }, []);
 
     return (
-        <div className="home-container">
+        <div
+            className="home-container"
+            style={{
+                backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(${bgImage})`
+            }}
+        >
             {/* Header */}
             <header className="home-header">
                 <div className="brand-logo">갈래말래</div>
                 <Menu className="menu-icon" size={28} />
             </header>
 
-            {/* Hero Section */}
-            <section
-                className="hero-section"
-                style={{
-                    backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(${bgImage})`
-                }}
-            >
-                {/* Removed .plane-illustration as we are using real photos now */}
-                <div className="hero-text">
-                    <p>
-                        <strong>여행 갈래말래?</strong>
-                    </p>
-                    <p>여행 계획을 위한 AI 도구,</p>
-                    <p>지금 바로 사용해 보세요.</p>
+            {/* Main Content (Centered) */}
+            <main className="home-main">
+                <div className="hero-text-center">
+                    <h1>어디로 떠나고 싶으신가요?</h1>
+                    <p>AI와 함께 나만의 특별한 여행을 계획해보세요.</p>
                 </div>
-            </section>
 
-            {/* Search / Input Section */}
-            <div className="search-container">
-                <textarea
-                    className="search-input"
-                    placeholder="어디로 떠나고 싶으신가요?"
-                    value={inputValue}
-                    onChange={(e) => setInputValue(e.target.value)}
-                />
-                <div className="send-icon-wrapper" onClick={() => navigate('/chat', { state: { initialMessage: inputValue } })}>
-                    <Send size={24} />
-                </div>
-            </div>
-
-            {/* Menu Grid */}
-            <div className="menu-grid">
-                <div className="menu-card" onClick={() => navigate('/chat-history')}>
-                    <div className="menu-card-icon">
-                        <MessageCircle size={32} />
+                {/* Search / Input Section */}
+                <div className="search-container-floating">
+                    <input
+                        type="text"
+                        className="search-input-floating"
+                        placeholder="예: 제주도 3박 4일 힐링 여행"
+                        value={inputValue}
+                        onChange={(e) => setInputValue(e.target.value)}
+                        onKeyDown={(e) => e.key === 'Enter' && navigate('/chat', { state: { initialMessage: inputValue } })}
+                    />
+                    <div className="send-icon-floating" onClick={() => navigate('/chat', { state: { initialMessage: inputValue } })}>
+                        <Send size={20} />
                     </div>
-                    <span className="menu-card-label">채팅 history</span>
                 </div>
+            </main>
 
-                <div className="menu-card" onClick={() => navigate('/history')}>
-                    <div className="menu-card-icon">
-                        <Map size={32} />
-                    </div>
-                    <span className="menu-card-label">팸플릿 history</span>
+            {/* Bottom Menu (Simplified) */}
+            <div className="menu-bar-bottom">
+                <div className="menu-item" onClick={() => navigate('/chat-history')}>
+                    <MessageCircle size={24} />
+                    <span>채팅</span>
                 </div>
-
-                <div className="menu-card">
-                    <div className="menu-card-icon">
-                        <List size={32} />
-                    </div>
-                    <span className="menu-card-label">계획 history</span>
+                <div className="menu-item" onClick={() => navigate('/history')}>
+                    <Map size={24} />
+                    <span>팸플릿</span>
                 </div>
-
-                <div className="menu-card">
-                    <div className="menu-card-icon">
-                        <User size={32} />
-                    </div>
-                    <span className="menu-card-label">My page</span>
+                <div className="menu-item">
+                    <List size={24} />
+                    <span>계획</span>
+                </div>
+                <div className="menu-item">
+                    <User size={24} />
+                    <span>MY</span>
                 </div>
             </div>
         </div>
