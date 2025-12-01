@@ -9,6 +9,7 @@ const ChatPage = () => {
     const location = useLocation();
     const { chatId } = location.state || {};
     const initialMessage = location.state?.initialMessage || '서울 종로로 1박 2일';
+    const contentRef = useRef(null);
 
     // Find chat data if chatId exists
     const chatData = chatId ? mockChatData.find(c => c.id === chatId) : null;
